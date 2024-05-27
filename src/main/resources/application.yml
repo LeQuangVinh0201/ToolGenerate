@@ -1,0 +1,84 @@
+server:
+  port: 9091
+  servlet:
+    context-path: /tool-generate
+
+spring:
+  application:
+    name: hrsinglex-tool-generate-label
+  datasource:
+#    project-customer:
+#      driverClassName: org.mariadb.jdbc.Driver
+#      url: jdbc:mariadb://localhost:3308/erpapp_demo?useUnicode=true&characterEncoding=UTF-8&createDatabaseIfNotExist=true
+#      username: root
+#      password: 123456
+#      poolName: ProjectCustomerJPAHikariCP
+#      connectionTimeout: 3600000
+#      maximumPoolSize: 50
+#      idleTimeout: 600000
+#      maxLifetime: 2000000
+    tool-generate:
+      driverClassName: org.mariadb.jdbc.Driver
+      url: jdbc:mariadb://localhost:3307/toolGenerate?useUnicode=true&characterEncoding=UTF-8&createDatabaseIfNotExist=true
+      username: root 
+      password: sa
+      poolName: ToolGenerateJPAHikariCP
+      connectionTimeout: 3600000
+      maximumPoolSize: 50
+      idleTimeout: 600000
+      maxLifetime: 2000000
+
+    project-customer-by-jdbc:
+      driverClassName: org.mariadb.jdbc.Driver
+      url: jdbc:mariadb://localhost:3308/erpapp?useUnicode=true&characterEncoding=UTF-8
+      username: root
+      password: 123456
+
+  jpa:
+#    project-customer:
+#      show-sql: true
+#      format-sql: true
+#      generate-ddl: true
+#      hibernate:
+#        ddl-auto: none
+#        dialect: org.hibernate.dialect.MariaDB103Dialect
+
+    tool-generate:
+      show-sql: true
+      format-sql: true
+      generate-ddl: true
+      hibernate:
+        ddl-auto: none
+#        dialect: org.hibernate.dialect.H2Dialect
+        dialect: org.hibernate.dialect.MariaDB103Dialect
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  servlet:
+    multipart:
+      max-request-size: 500MB
+      max-file-size: 500MB
+      resolve-lazily: true
+logging:
+  level:
+    org.hibernate.orm.jdbc.bind: trace
+    org.springframework.jdbc.core.JdbcTemplate: trace
+
+  file:
+    name: log/dev.log
+
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    enabled: 'true'
+    path: /swagger-ui.html
+
+file:
+  upload-dir: C:/tool-generate-upload
+  he-thong: C:/tool-generate-upload/hethong

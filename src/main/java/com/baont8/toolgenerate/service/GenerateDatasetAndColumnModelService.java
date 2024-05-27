@@ -1,0 +1,10 @@
+package com.baont8.toolgenerate.service;
+
+import com.baont8.toolgenerate.service.dtoRequest.generateDatasetAndColumnModel.GenerateDatasetAndColumnModelRequestDto;
+import com.baont8.toolgenerate.service.dtoResponse.generateDatasetAndColumnModel.GenerateDatasetAndColumnModelResponseDto;
+
+public interface GenerateDatasetAndColumnModelService {
+
+	public GenerateDatasetAndColumnModelResponseDto generateDatasetAndColumnModel(GenerateDatasetAndColumnModelRequestDto requestDto);
+
+}
